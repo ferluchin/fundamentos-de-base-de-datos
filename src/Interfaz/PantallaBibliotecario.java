@@ -30,7 +30,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         this.ocultarBarraTitulo();
         this.recurso_bib.setVisible(false);
         this.jDevolucion.setVisible(false);
-        this.jPrestacion.setVisible(false);
+        this.jEjem.setVisible(false);
         this.jUsuarios.setVisible(false);
     }
 
@@ -172,7 +172,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         contra_adm = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         ape_adm = new javax.swing.JTextField();
-        jPrestacion = new javax.swing.JInternalFrame();
+        jEjem = new javax.swing.JInternalFrame();
         jbguardar2 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -216,7 +216,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         Jpago = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
-        Ejemplar = new javax.swing.JInternalFrame();
+        Jprestacion = new javax.swing.JInternalFrame();
         jdescripcion2 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jbguardar6 = new javax.swing.JButton();
@@ -672,24 +672,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jDevolucionLayout.setHorizontalGroup(
             jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDevolucionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDevolucionLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jlencabezado_empleado3)
-                        .addGap(223, 223, 223))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel27)
-                                .addGap(18, 18, 18)
-                                .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -707,11 +693,20 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                                                 .addGap(109, 109, 109)
                                                 .addComponent(jLabel16)))
                                         .addGap(33, 33, 33)
-                                        .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 10, Short.MAX_VALUE)))
-                .addContainerGap(11, Short.MAX_VALUE))
-            .addGroup(jDevolucionLayout.createSequentialGroup()
-                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlencabezado_empleado3)
+                                    .addGroup(jDevolucionLayout.createSequentialGroup()
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel27)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jDevolucionLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jbguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -720,7 +715,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addGroup(jDevolucionLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jDevolucionLayout.setVerticalGroup(
             jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -737,9 +732,9 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(jFObservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(32, 32, 32)
                 .addComponent(jlencabezado_empleado3)
-                .addGap(44, 44, 44)
+                .addGap(51, 51, 51)
                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel27)
@@ -856,17 +851,17 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addComponent(contra_adm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(125, 125, 125)
                 .addComponent(jbguardar1)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(jUsuarios);
         jUsuarios.setBounds(0, 0, 1230, 550);
 
-        jPrestacion.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPrestacion.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        jPrestacion.setEnabled(false);
-        jPrestacion.setPreferredSize(new java.awt.Dimension(600, 600));
-        jPrestacion.setVisible(true);
+        jEjem.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jEjem.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        jEjem.setEnabled(false);
+        jEjem.setPreferredSize(new java.awt.Dimension(600, 600));
+        jEjem.setVisible(true);
 
         jbguardar2.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         jbguardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
@@ -897,27 +892,27 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
         jestado3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Disponible", "Baja" }));
 
-        javax.swing.GroupLayout jPrestacionLayout = new javax.swing.GroupLayout(jPrestacion.getContentPane());
-        jPrestacion.getContentPane().setLayout(jPrestacionLayout);
-        jPrestacionLayout.setHorizontalGroup(
-            jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPrestacionLayout.createSequentialGroup()
-                .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPrestacionLayout.createSequentialGroup()
+        javax.swing.GroupLayout jEjemLayout = new javax.swing.GroupLayout(jEjem.getContentPane());
+        jEjem.getContentPane().setLayout(jEjemLayout);
+        jEjemLayout.setHorizontalGroup(
+            jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEjemLayout.createSequentialGroup()
+                .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPrestacionLayout.createSequentialGroup()
+                        .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jEjemLayout.createSequentialGroup()
                                 .addComponent(jLabel36)
                                 .addGap(18, 18, 18)
                                 .addComponent(jFObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPrestacionLayout.createSequentialGroup()
+                            .addGroup(jEjemLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(18, 18, 18)
                                 .addComponent(jFISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPrestacionLayout.createSequentialGroup()
+                            .addGroup(jEjemLayout.createSequentialGroup()
                                 .addGap(243, 243, 243)
                                 .addComponent(jlencabezado_empleado1))))
-                    .addGroup(jPrestacionLayout.createSequentialGroup()
+                    .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel52)
                         .addGap(44, 44, 44)
@@ -926,37 +921,37 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                         .addComponent(jLabel23)
                         .addGap(45, 45, 45)
                         .addComponent(jestado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPrestacionLayout.createSequentialGroup()
+                    .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addComponent(jbguardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPrestacionLayout.createSequentialGroup()
+                    .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(247, 247, 247)
                         .addComponent(jlencabezado_empleado2)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPrestacionLayout.setVerticalGroup(
-            jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPrestacionLayout.createSequentialGroup()
+        jEjemLayout.setVerticalGroup(
+            jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEjemLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jlencabezado_empleado1)
                 .addGap(42, 42, 42)
-                .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jFISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jFObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jlencabezado_empleado2)
-                .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPrestacionLayout.createSequentialGroup()
+                .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jbguardar2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPrestacionLayout.createSequentialGroup()
+                        .addContainerGap(202, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEjemLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addGroup(jPrestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jestado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel52)
                             .addComponent(jLabel23)
@@ -964,8 +959,8 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                         .addGap(276, 276, 276))))
         );
 
-        escritorioAdmin.add(jPrestacion);
-        jPrestacion.setBounds(0, 0, 1230, 560);
+        escritorioAdmin.add(jEjem);
+        jEjem.setBounds(0, 0, 1230, 560);
 
         multa.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         multa.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -1072,7 +1067,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jmotivo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jmotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(672, Short.MAX_VALUE))
         );
         multaLayout.setVerticalGroup(
             multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1110,7 +1105,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbguardar4)
                     .addComponent(jButton1))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(multa);
@@ -1248,7 +1243,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addGroup(pagoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(50, 50, 50))
         );
@@ -1256,11 +1251,11 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         escritorioAdmin.add(pago);
         pago.setBounds(0, 0, 1230, 560);
 
-        Ejemplar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        Ejemplar.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        Ejemplar.setEnabled(false);
-        Ejemplar.setPreferredSize(new java.awt.Dimension(600, 600));
-        Ejemplar.setVisible(true);
+        Jprestacion.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        Jprestacion.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        Jprestacion.setEnabled(false);
+        Jprestacion.setPreferredSize(new java.awt.Dimension(600, 600));
+        Jprestacion.setVisible(true);
 
         jdescripcion2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1314,23 +1309,23 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
         jlencabezado_empleado9.setText("PRESTACIÓN");
 
-        javax.swing.GroupLayout EjemplarLayout = new javax.swing.GroupLayout(Ejemplar.getContentPane());
-        Ejemplar.getContentPane().setLayout(EjemplarLayout);
-        EjemplarLayout.setHorizontalGroup(
-            EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EjemplarLayout.createSequentialGroup()
-                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EjemplarLayout.createSequentialGroup()
+        javax.swing.GroupLayout JprestacionLayout = new javax.swing.GroupLayout(Jprestacion.getContentPane());
+        Jprestacion.getContentPane().setLayout(JprestacionLayout);
+        JprestacionLayout.setHorizontalGroup(
+            JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JprestacionLayout.createSequentialGroup()
+                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JprestacionLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(EjemplarLayout.createSequentialGroup()
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(JprestacionLayout.createSequentialGroup()
                                 .addComponent(jLabel47)
                                 .addGap(18, 18, 18)
                                 .addComponent(jFObservacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(EjemplarLayout.createSequentialGroup()
-                                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JprestacionLayout.createSequentialGroup()
+                                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jlencabezado_empleado8)
-                                    .addGroup(EjemplarLayout.createSequentialGroup()
+                                    .addGroup(JprestacionLayout.createSequentialGroup()
                                         .addComponent(jLabel49)
                                         .addGap(18, 18, 18)
                                         .addComponent(jFISBN2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1338,84 +1333,84 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel48)))
                                 .addGap(33, 33, 33)
                                 .addComponent(jFCondicion2))))
-                    .addGroup(EjemplarLayout.createSequentialGroup()
+                    .addGroup(JprestacionLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(jLabel50)
                             .addComponent(jLabel18)
                             .addComponent(jlencabezado_empleado9))
                         .addGap(18, 18, 18)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EjemplarLayout.createSequentialGroup()
-                                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JprestacionLayout.createSequentialGroup()
+                                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jFechaInicio1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                                     .addComponent(jFEstudiante2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jdescripcion2))
                                 .addGap(18, 18, 18)
-                                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel51)
                                     .addComponent(jLabel46)
                                     .addComponent(jLabel42))
-                                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(EjemplarLayout.createSequentialGroup()
+                                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JprestacionLayout.createSequentialGroup()
                                         .addGap(32, 32, 32)
                                         .addComponent(jestado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(EjemplarLayout.createSequentialGroup()
+                                    .addGroup(JprestacionLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jFechaFin2)
                                             .addComponent(jFBibliotecario1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(EjemplarLayout.createSequentialGroup()
+                            .addGroup(JprestacionLayout.createSequentialGroup()
                                 .addGap(69, 69, 69)
                                 .addComponent(jbguardar6, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        EjemplarLayout.setVerticalGroup(
-            EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EjemplarLayout.createSequentialGroup()
+        JprestacionLayout.setVerticalGroup(
+            JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JprestacionLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jlencabezado_empleado8)
                 .addGap(39, 39, 39)
-                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel49)
                     .addComponent(jLabel48)
                     .addComponent(jFCondicion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFISBN2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
-                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
                     .addComponent(jFObservacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jlencabezado_empleado9)
-                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EjemplarLayout.createSequentialGroup()
+                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JprestacionLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(jFEstudiante2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel50)
                             .addComponent(jFechaInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(EjemplarLayout.createSequentialGroup()
+                    .addGroup(JprestacionLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jdescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel18))
-                            .addGroup(EjemplarLayout.createSequentialGroup()
-                                .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(EjemplarLayout.createSequentialGroup()
-                                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(JprestacionLayout.createSequentialGroup()
+                                .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(JprestacionLayout.createSequentialGroup()
+                                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel51)
                                             .addComponent(jFBibliotecario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(56, 56, 56)
-                                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jestado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel42)))
-                                    .addGroup(EjemplarLayout.createSequentialGroup()
-                                        .addGroup(EjemplarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addGroup(JprestacionLayout.createSequentialGroup()
+                                        .addGroup(JprestacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel46)
                                             .addComponent(jFechaFin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(47, 47, 47)))
@@ -1425,8 +1420,8 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addContainerGap(212, Short.MAX_VALUE))
         );
 
-        escritorioAdmin.add(Ejemplar);
-        Ejemplar.setBounds(0, 0, 1230, 560);
+        escritorioAdmin.add(Jprestacion);
+        Jprestacion.setBounds(0, 0, 1230, 560);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1618,8 +1613,8 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
         this.escritorioAdmin.removeAll();
         this.escritorioAdmin.updateUI();
-        this.escritorioAdmin.add(jPrestacion);
-        jPrestacion.show();
+        this.escritorioAdmin.add(Jprestacion);
+        Jprestacion.show();
     }//GEN-LAST:event_consultaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -1778,11 +1773,11 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el ISBN", "Information", JOptionPane.INFORMATION_MESSAGE);
         } else if (jFObservacion.getText().equals("")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el titulo del recurso", "Information", JOptionPane.INFORMATION_MESSAGE);
-            } else {
+        } else {
             isbn = this.jFISBN.getText();
             observacion = this.jFObservacion.getText();
             estado = this.jestado1.getSelectedItem().toString();
-            condicion=jestado3.getSelectedItem().toString();
+            condicion = jestado3.getSelectedItem().toString();
             try {
                 ConexionDB coneccion = new ConexionDB(); //Creamos un objeto de la clase Coneccion DB
                 Connection con = coneccion.obtenerConexion();
@@ -2028,8 +2023,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
-        
+        this.escritorioAdmin.removeAll();
+        this.escritorioAdmin.updateUI();
+        this.escritorioAdmin.add(jEjem);
+        jEjem.show();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jdescripcion2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jdescripcion2KeyTyped
@@ -2041,10 +2038,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbguardar6ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame Ejemplar;
     private javax.swing.JTextField JISBN;
     private javax.swing.JTable Jpago;
     private javax.swing.JTable Jpago1;
+    private javax.swing.JInternalFrame Jprestacion;
     private javax.swing.JTextField Valor;
     private javax.swing.JTextField Valor1;
     private javax.swing.JButton actDatos;
@@ -2061,6 +2058,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JInternalFrame jDevolucion;
+    private javax.swing.JInternalFrame jEjem;
     private javax.swing.JTextField jFBibliotecario1;
     private javax.swing.JTextField jFCondicion1;
     private javax.swing.JTextField jFCondicion2;
@@ -2131,7 +2129,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
-    private javax.swing.JInternalFrame jPrestacion;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
