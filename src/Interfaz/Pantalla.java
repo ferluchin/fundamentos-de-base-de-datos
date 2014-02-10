@@ -1758,30 +1758,14 @@ public class Pantalla extends javax.swing.JInternalFrame {
 
     private void nom_autKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nom_autKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_nom_autKeyTyped
 
     private void ape_autKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ape_autKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_ape_autKeyTyped
 
     private void direccion_autKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_direccion_autKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
-        
     }//GEN-LAST:event_direccion_autKeyTyped
 
     private void cod_autKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cod_autKeyTyped
@@ -1794,11 +1778,6 @@ public class Pantalla extends javax.swing.JInternalFrame {
 
     private void aut_paisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_aut_paisKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_aut_paisKeyTyped
 
     private void mod_autorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mod_autorActionPerformed
@@ -1835,29 +1814,14 @@ public class Pantalla extends javax.swing.JInternalFrame {
 
     private void edi_paisKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edi_paisKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_edi_paisKeyTyped
 
     private void edi_ciudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edi_ciudadKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_edi_ciudadKeyTyped
 
     private void edi_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edi_nombreKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_edi_nombreKeyTyped
 
     private void edi_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edi_telefonoKeyTyped
@@ -2002,11 +1966,6 @@ public class Pantalla extends javax.swing.JInternalFrame {
 
     private void suc_lugarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suc_lugarKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_suc_lugarKeyTyped
 
     private void suc_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suc_emailKeyTyped

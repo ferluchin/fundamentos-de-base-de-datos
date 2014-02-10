@@ -64,32 +64,25 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         // Metodo para consultar en la BD
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ESTUDIANTE");
-        modelo.addColumn("COD_BIB");
-        modelo.addColumn("FECHA_I");
-        modelo.addColumn("FECHA_F");
+        modelo.addColumn("BIBLIOTECARIO");
+        modelo.addColumn("FECHA ENTRGA");
+        modelo.addColumn("FECHA RECIBO");
         modelo.addColumn("ESTADO");
-        modelo.addColumn("ISBN");
-        modelo.addColumn("ESTADO");
-        modelo.addColumn("OBSERVACION");
-        Jdev.setModel(modelo);
-        String sql = ("SELECT * FROM PRESTAMOS, DEVOLUCION_DETALLE WHERE PRESTAMOS.ID_PRESTAMO = DEVOLUCION_DETALLE.ID_DEVOLUCION AND DEVOLUCION_DETALLE.ID_DEVOLUCION LIKE'" + valor + "'");
-        String[] datos = new String[11];
+        Jpago1.setModel(modelo);
+        String sql = ("SELECT CED_EST, BIB_COD, FECHAINICIO_P, FECHAFIN_P, ESTADO_PRE FROM PRESTAMOS WHERE CED_EST LIKE'" + valor + "'");
+        String[] datos = new String[5];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = rs.getString(2);
-                datos[1] = rs.getString(3);
-                datos[2] = rs.getString(4);
-                datos[3] = rs.getString(5);
-                datos[4] = rs.getString(7);
-                datos[5] = rs.getString(9);
-                datos[6] = rs.getString(10);
-                datos[7] = rs.getString(11);
-                
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
                 modelo.addRow(datos);
             }
-            Jdev.setModel(modelo);
+            Jpago1.setModel(modelo);
         } catch (SQLException ex) {
             Logger.getLogger(Pantalla.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -109,6 +102,9 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         empleado = new javax.swing.JButton();
@@ -150,6 +146,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jButton6 = new javax.swing.JButton();
         jDevolucion = new javax.swing.JInternalFrame();
         jFObservacion1 = new javax.swing.JTextField();
+        jFCondicion1 = new javax.swing.JTextField();
         jFISBN1 = new javax.swing.JTextField();
         jFEstudiante1 = new javax.swing.JTextField();
         jlencabezado_empleado3 = new javax.swing.JLabel();
@@ -164,9 +161,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        Jdev = new javax.swing.JTable();
-        id = new javax.swing.JTextField();
-        jFCondicion1 = new javax.swing.JComboBox();
+        Jpago1 = new javax.swing.JTable();
         jUsuarios = new javax.swing.JInternalFrame();
         jLabel22 = new javax.swing.JLabel();
         nom_adm = new javax.swing.JTextField();
@@ -250,6 +245,22 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(jList1);
+
+        jMenuItem1.setText("Modificar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("jMenuItem3");
         jPopupMenu2.add(jMenuItem3);
@@ -589,7 +600,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(recurso_bibLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbguardar)
                     .addComponent(jButton6))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(recurso_bib);
@@ -646,7 +657,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             }
         });
 
-        Jdev.setModel(new javax.swing.table.DefaultTableModel(
+        Jpago1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -654,9 +665,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane7.setViewportView(Jdev);
-
-        jFCondicion1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Devuelto" }));
+        jScrollPane7.setViewportView(Jpago1);
 
         javax.swing.GroupLayout jDevolucionLayout = new javax.swing.GroupLayout(jDevolucion.getContentPane());
         jDevolucion.getContentPane().setLayout(jDevolucionLayout);
@@ -667,24 +676,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addGroup(jDevolucionLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jDevolucionLayout.createSequentialGroup()
-                                        .addGap(100, 100, 100)
-                                        .addComponent(jlencabezado_empleado3))
-                                    .addGroup(jDevolucionLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel27)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jDevolucionLayout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jbguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(89, 89, 89)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -701,18 +692,29 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                                                 .addComponent(jFISBN1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(109, 109, 109)
                                                 .addComponent(jLabel16)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDevolucionLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlencabezado_empleado3)
+                                    .addGroup(jDevolucionLayout.createSequentialGroup()
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel27)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jDevolucionLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jbguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(176, 176, 176)
+                        .addComponent(jButton2))
                     .addGroup(jDevolucionLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDevolucionLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jDevolucionLayout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jDevolucionLayout.setVerticalGroup(
@@ -724,31 +726,29 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel16)
-                    .addComponent(jFISBN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                    .addComponent(jFCondicion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFISBN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(jFObservacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jlencabezado_empleado3)
                 .addGap(51, 51, 51)
-                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel27)
+                        .addComponent(jFechaFin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(jFEstudiante1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5))
+                .addGap(37, 37, 37)
                 .addGroup(jDevolucionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbguardar3)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(jDevolucion);
@@ -948,7 +948,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addGroup(jEjemLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(jbguardar2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(202, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEjemLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(jEjemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1050,6 +1050,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                                         .addComponent(jFechaemision)
                                         .addComponent(jobservmulta, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, multaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jlencabezado_empleado5)
                                 .addGap(18, 18, 18)
                                 .addComponent(jlencabezado_empleado6)))
@@ -1066,7 +1067,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jmotivo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jmotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(672, Short.MAX_VALUE))
         );
         multaLayout.setVerticalGroup(
             multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1104,7 +1105,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbguardar4)
                     .addComponent(jButton1))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(multa);
@@ -1221,11 +1222,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pagoLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel44)
-                                .addComponent(codDevo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel44)
+                            .addComponent(codDevo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4))
                         .addGap(32, 32, 32)
                         .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43)
@@ -1235,7 +1235,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                             .addComponent(jLabel20)
                             .addComponent(Valor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jFechaemision1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel45))
                         .addGap(30, 30, 30)
@@ -1296,7 +1296,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jLabel50.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         jLabel50.setText("Fecha Inicio"); // NOI18N
 
-        jestado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Prestado" }));
+        jestado2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Excelente", "Bueno", "Malo" }));
 
         jLabel51.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         jLabel51.setText("Bibliotecario COD"); // NOI18N
@@ -1617,6 +1617,45 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         Jprestacion.show();
     }//GEN-LAST:event_consultaActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+//        int fila = TEditar.getSelectedRow();
+//        if (fila >= 0) {
+//            jt_cedula.setText(TEditar.getValueAt(fila, 0).toString());
+//            jtnombre_ed.setText(TEditar.getValueAt(fila, 1).toString());
+//            jtapellidos.setText(TEditar.getValueAt(fila, 2).toString());
+//            jtdire.setText(TEditar.getValueAt(fila, 3).toString());
+//            jttele.setText(TEditar.getValueAt(fila, 4).toString());
+//            jt_cargo_ed.setText(TEditar.getValueAt(fila, 5).toString());
+//            jtsalario1.setText(TEditar.getValueAt(fila, 6).toString());
+//            jtHora1.setSelectedItem(TEditar.getValueAt(fila, 7).toString());
+//
+//        } else {
+//            JOptionPane.showMessageDialog(null, "no seleciono fila");
+//        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+////        int fila = TEditar.getSelectedRow();
+////        String valor = "";
+////        valor = TEditar.getValueAt(fila, 0).toString();
+////
+////        int exit = JOptionPane.showConfirmDialog(this, "<html><font face=\"Consolas\"> <i>Esta seguro que desea <u><b>eliminar</b></u> ?<i/></font>", "Sistema", JOptionPane.YES_NO_OPTION);
+////        if (exit == JOptionPane.YES_OPTION) {
+////            try {
+////                PreparedStatement pst = cn.prepareStatement("DELETE FROM empleados WHERE  cedula='" + valor + "'");
+////                pst.executeUpdate();
+//////                mostrardatos("");
+////            } catch (Exception e) {
+////            }
+////            // JOptionPane.showConfirmDialog(TEditar, exit, null, WIDTH);
+//            //  JOptionPane.showConfirmDialog(panelNice1, a, null, WIDTH);
+//        }
+
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     private void jeditorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jeditorialKeyTyped
         int k = (int) evt.getKeyChar();
         if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
@@ -1627,11 +1666,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jIdiomaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jIdiomaKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jIdiomaKeyTyped
 
     private void jedicionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jedicionKeyTyped
@@ -1644,11 +1678,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jlugarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jlugarKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jlugarKeyTyped
 
     private void jcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jcantidadKeyTyped
@@ -1657,20 +1686,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jtituloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtituloKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jtituloKeyTyped
 
     private void jbibliotecarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbibliotecarioKeyTyped
         // TODO add your handling code here:
-        int k = (int) evt.getKeyChar();
-        if (k != 32 && k != 8 && k < 65 || k > 90 && k < 97 || k > 122) {
-            evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-            JOptionPane.showMessageDialog(null, "Solo ingrese letras", "Sistema", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_jbibliotecarioKeyTyped
 
     private void jcodeditorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jcodeditorialKeyTyped
@@ -1748,7 +1767,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jbguardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardar2ActionPerformed
         // TODO add your handling code here:
-        String isbn, condicion, observacion, estado;
+        String isbn, condicion, observacion, estudiante, bibliotecario, fecha_ini, fecha_fin, obser_pres, estado;
         boolean flag = true;
         if (jFISBN.getText().equals("")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el ISBN", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -1773,6 +1792,21 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             } catch (Exception ex) {
                 System.out.print(ex.getMessage());
             }
+            try {
+                ConexionDB coneccion = new ConexionDB(); //Creamos un objeto de la clase Coneccion DB
+                Connection con = coneccion.obtenerConexion();
+                String sInser = "insert into PRESTAMO_DETALLE (ISBN, ESTADO_DET, OBSERVACION_DET)  values(?,?,?)"; // Manipulacion de tablas
+                PreparedStatement dato = con.prepareStatement(sInser);
+                dato.setString(1, isbn);
+                dato.setString(2, condicion);
+                dato.setString(3, observacion);
+                dato.executeUpdate();
+
+                coneccion.cerrarConexion();
+            } catch (Exception ex) {
+                System.out.print(ex.getMessage());
+                // JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
         }
         jFISBN.setText("");
         jFObservacion.setText("");
@@ -1783,11 +1817,13 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jbguardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardar3ActionPerformed
         // TODO add your handling code here:
-        String cod, estado, observacion, estudiante, fecha_fin, id;
+        String cod, estado, observacion, estudiante, fecha_fin;
         boolean flag = true;
 
         if (jFISBN1.getText().equals("")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el ISBN", "Information", JOptionPane.INFORMATION_MESSAGE);
+        } else if (jFCondicion1.getText().equals("")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Cambie el estado", "Information", JOptionPane.INFORMATION_MESSAGE);
         } else if (jFObservacion1.getText().equals("")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese alguna observacion", "Information", JOptionPane.INFORMATION_MESSAGE);
         } else if (jFEstudiante1.getText().equals("")) {
@@ -1796,9 +1832,8 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese la fecha devuelta", "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } else {
-            id= this.id.getText();
-            cod = this.jFISBN1.getText();
-            estado = this.jFCondicion1.getSelectedItem().toString();
+            cod = this.jFechaFin1.getText();
+            estado = this.jFCondicion1.getText();
             observacion = this.jFObservacion1.getText();
             estudiante = this.jFEstudiante1.getText();
             fecha_fin = this.jFechaFin1.getText();
@@ -1929,7 +1964,8 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jbguardar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardar5ActionPerformed
         // TODO add your handling code here:
-        String valor, fecha_ini, observacion, estado;
+        // TODO add your handling code here:
+        String valor, fecha_ini, fecha_fin, observacion, estado, medio;
         boolean flag = true;
 
         if (codDevo1.getText().equals("")) {
@@ -1982,7 +2018,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        mostrardato(id.getText());        
+        mostrardato(jFEstudiante1.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1999,81 +2035,12 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
     private void jbguardar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardar6ActionPerformed
         // TODO add your handling code here:
-          String isbn, condicion, obsB, estud, codBib,  fecha_ini, fecha_fin, observacion, estado;
-        boolean flag = true;
-
-        if (jFISBN2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese el ISBN", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jFCondicion2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese la condicion", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jFObservacion2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese la observacion", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jFEstudiante2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese cod del estudiante", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jFBibliotecario1.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese cod de bibliotecario", "Information", JOptionPane.INFORMATION_MESSAGE);        
-        } else if (jFechaInicio1.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese la fecha de prestación de inicio", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jFechaFin2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese la fecha de prestación terminada", "Information", JOptionPane.INFORMATION_MESSAGE);
-        } else if (jdescripcion2.getText().equals("")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese observaciones del bibliotecario", "Information", JOptionPane.INFORMATION_MESSAGE);
-
-        } else {
-
-            isbn = this.jFISBN2.getText();
-            estado = this.jestado2.getSelectedItem().toString();
-            condicion = this.jFCondicion2.getText();
-            obsB = this.jFObservacion2.getText();
-            estud = this.jFEstudiante2.getText();
-            codBib = this.jFBibliotecario1.getText();
-            fecha_ini = this.jFechaInicio1.getText();
-            fecha_fin = this.jFechaFin2.getText();
-            observacion = this.jdescripcion2.getText();
-            
-            try {
-                ConexionDB coneccion = new ConexionDB(); //Creamos un objeto de la clase Coneccion DB
-                Connection con = coneccion.obtenerConexion();
-                String sInsert = "insert into PRESTAMO_DETALLE (ISBN, ESTADO_DET, OBSERVACION_DET) values(?,?,?)"; // Manipulacion de tablas
-                PreparedStatement datos = con.prepareStatement(sInsert);
-                datos.setString(1, isbn);
-                datos.setString(2, condicion);
-                datos.setString(3, obsB);
-                datos.executeUpdate();
-                coneccion.cerrarConexion();
-            } catch (Exception ex) {
-                System.out.print(ex.getMessage());
-
-            }
-            try {
-                ConexionDB coneccion = new ConexionDB(); //Creamos un objeto de la clase Coneccion DB
-                Connection con = coneccion.obtenerConexion();
-                String sInsert = "insert into PRESTAMOS (CED_EST, BIB_COD, FECHAINICIO_P, FECHAFIN_P, OBSERVACION_PRE, ESTADO_PRE) values(?,?,?,?,?,?)"; // Manipulacion de tablas
-                PreparedStatement datos = con.prepareStatement(sInsert);
-                datos.setString(1,estud);
-                datos.setString(2,codBib);
-                datos.setString(3,fecha_ini);
-                datos.setString(4,fecha_fin);
-                datos.setString(5,observacion);
-                datos.setString(6,estado);
-                datos.executeUpdate();
-                coneccion.cerrarConexion();
-            } catch (Exception ex) {
-                System.out.print(ex.getMessage());
-            }
-            
-
-            Valor.setText("");
-            jobservmulta.setText("");
-            JOptionPane.showMessageDialog(null, " Registrado Correctamente", "Sistema", JOptionPane.INFORMATION_MESSAGE);
-        }
-        
     }//GEN-LAST:event_jbguardar6ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JISBN;
-    private javax.swing.JTable Jdev;
     private javax.swing.JTable Jpago;
+    private javax.swing.JTable Jpago1;
     private javax.swing.JInternalFrame Jprestacion;
     private javax.swing.JTextField Valor;
     private javax.swing.JTextField Valor1;
@@ -2084,7 +2051,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField contra_adm;
     private javax.swing.JButton empleado;
     private javax.swing.JDesktopPane escritorioAdmin;
-    private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2094,7 +2060,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JInternalFrame jDevolucion;
     private javax.swing.JInternalFrame jEjem;
     private javax.swing.JTextField jFBibliotecario1;
-    private javax.swing.JComboBox jFCondicion1;
+    private javax.swing.JTextField jFCondicion1;
     private javax.swing.JTextField jFCondicion2;
     private javax.swing.JTextField jFEstudiante1;
     private javax.swing.JTextField jFEstudiante2;
@@ -2158,7 +2124,10 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
