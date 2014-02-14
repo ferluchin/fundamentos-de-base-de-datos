@@ -314,7 +314,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jlencabezado_empleado5 = new javax.swing.JLabel();
-        jlencabezado_empleado6 = new javax.swing.JLabel();
         jmotivo = new javax.swing.JComboBox();
         Valor = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
@@ -1115,8 +1114,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
 
         jlencabezado_empleado5.setText("MULTAS");
 
-        jlencabezado_empleado6.setText("VALORES");
-
         jmotivo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mal uso", "Retraso", "Otro" }));
 
         Valor.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1146,12 +1143,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
         multa.getContentPane().setLayout(multaLayout);
         multaLayout.setHorizontalGroup(
             multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, multaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jlencabezado_empleado5)
-                .addGap(34, 34, 34)
-                .addComponent(jlencabezado_empleado6)
-                .addGap(249, 249, 249))
             .addGroup(multaLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1168,7 +1159,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                         .addComponent(jobservmulta, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jFechacobro, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFechaemision, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel39)
                     .addComponent(jLabel24))
@@ -1178,10 +1169,15 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                     .addComponent(jmotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81))
             .addGroup(multaLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jbguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(multaLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jbguardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(234, 234, 234)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(multaLayout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jlencabezado_empleado5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         multaLayout.setVerticalGroup(
@@ -1189,12 +1185,9 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
             .addGroup(multaLayout.createSequentialGroup()
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(multaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jlencabezado_empleado5))
-                    .addComponent(jlencabezado_empleado6))
-                .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(multaLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(35, 35, 35)
+                        .addComponent(jlencabezado_empleado5)
+                        .addGap(30, 30, 30)
                         .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17)
                             .addComponent(Valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1207,15 +1200,14 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel13))
                     .addGroup(multaLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addGap(101, 101, 101)
                         .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel41)
                             .addGroup(multaLayout.createSequentialGroup()
                                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel39)
                                     .addComponent(jmotivo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addGap(27, 27, 27)
+                                .addGap(48, 48, 48)
                                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel24)
                                     .addComponent(jmotivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1225,7 +1217,7 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
                 .addGroup(multaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbguardar4)
                     .addComponent(jButton1))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         escritorioAdmin.add(multa);
@@ -2474,7 +2466,6 @@ public class PantallaBibliotecario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlencabezado_empleado3;
     private javax.swing.JLabel jlencabezado_empleado4;
     private javax.swing.JLabel jlencabezado_empleado5;
-    private javax.swing.JLabel jlencabezado_empleado6;
     private javax.swing.JLabel jlencabezado_empleado7;
     private javax.swing.JTextField jlugar;
     private javax.swing.JComboBox jmotivo;
